@@ -1,0 +1,63 @@
+This is a very interesting text about the Challenge.
+
+We ran a direct $N$-body simulation of a Palomar 5-like globular cluster, which dissolved in a static background potential (see below). The model initially consisted of 65,356 particles and was evolved for 4\,Gyr using the publicly available code \textsc{Nbody6}. 
+
+The Challenge can be found on the wiki page of the Gaia Challenge workshop\footnote{http://astrowiki.ph.surrey.ac.uk/dokuwiki/doku.php}, and we invite everybody to download the Challenge and contribute. The columns are described in the header of the file. They give Cartesian coordinates and observables for positions and velocities of all particles. All numbers are either in pc and km/s, or degree and mas/yr, respectively. 
+
+The Cartesian coordinates are given in the Galactic rest frame. The observables were derived assuming a solar Galactocentric distance of 8.33 kpc and a LSR motion of 239.5\,km/s \citep{Gillessen09}. In addition, the solar reflex motion was assumed to be $(11.1, 12.24, 7.25)$\,km/s \citep{Schonrich10}.  
+
+The present-day position of Palomar\,5 is $RA = 229.022083$\,deg, $Dec = -0.111389$\,deg or $l = 0.852059$\,deg, $b = 45.859989$\,deg, respectively. The present-day Cartesian coordinates of the progenitor are 
+\begin{eqnarray}
+  x &=& 7816.082584 pc\\
+  y &=& 240.023507 pc\\
+  z &=& 16640.055966 pc\\
+  vx &=& -37.456858 km/s\\
+  vy &=& -151.794112 km/s\\
+  vz &=& -21.609662 km/s
+\end{eqnarray}
+
+
+\subsection{The potential}
+
+\begin{itemize}
+  \item $M_{Halo} = 1.81194\times 10^{12}\,M_{\odot}$
+  \item $R_{Halo} = 32260\,pc$
+  \item $q_z = 0.8140$
+  \item $M_{Pal5}(t=-4 Gyr) = 31090\,M_{\odot}$
+  \item $M_{Pal5}(t=today) = 13150\,M_{\odot}$
+  \item $d_{Sun} = 23190\,pc$
+  \item $V_C(R_{Sun}) = 249.01\,km/s$
+  \item $V_C(R_{Pal5}) = 247.84\,km/s$
+  \item $V_C(R_{Halo}) = 251.99\,km/s$
+  \item $a(R_{Sun}, 0, 0) = 7.44\,pc/Myr^2$
+  \item $a(R_{Pal5}) = a(7816 pc, 240 pc, 16640 pc) = 3.34\,pc/Myr^2$
+  \item $a(R_{Halo}, 0, 0) = 1.97\,pc/Myr^2$
+\end{itemize}
+
+
+The functional form of the potential components is as follows:
+
+Flattened NFW halo:
+
+\begin{equation}
+  \Phi_{Halo}(R, z) = -\frac{GM}{\sqrt{R^2+\frac{z^2}{q_z^2}}}\ln\left(1+\frac{\sqrt{R^2+\frac{z^2}{q_z^2}}}{R_{Halo}} \right)
+\end{equation}
+
+Jaffe bulge:
+
+\begin{eqnarray}
+  \Phi_{Bulge} &=& -\frac{GM_{Bulge}}{b_{bulge}}\ln{\frac{R}{R+b_{bulge}}}\\
+  M_{Bulge} &=& 3.4\times 10^{10}\msun\\
+  b_{Bulge} &=& 700.0\,\mbox{pc}
+\end{eqnarray}
+
+Miyamoto-Nagai disk:
+\begin{eqnarray}
+  \Phi_{Disk} &=& -\frac{GM_{Disk}}{\sqrt{R^2+\left(a_{Disk}+\sqrt{z^2+b_{Disk}^2}\right)^2}}\\
+  M_{Disk} &=& 1.0\times 10^{11}\,M_{\odot}\\
+  a_{Disk} &=& 6500\,pc\\
+  b_{Disk} &=& 260\,pc
+\end{eqnarray}
+
+
+
