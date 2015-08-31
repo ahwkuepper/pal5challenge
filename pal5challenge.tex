@@ -1,24 +1,22 @@
-To generate a Palomar 5-like stream, we ran a direct $N$-body simulation of a low-mass globular cluster, and let it dissolve in a static background potential (see below). The model initially consisted of 65,356 single-mass particles of $0.5\msun$ each, and was evolved for 4\,Gyr using the publicly available code \textsc{Nbody6}. The initial mass of the cluster was $31090\msun$ and it lost $17940\msun$ into the tidal tails, leaving the cluster with a present-day mass of $13150\msun$. The orbit of the cluster was chosen such that the present-day position, distance and radial velocity of the cluster match the observed values for Palomar 5. The position in observable coordinates is $RA = 229.02$\,deg, $Dec = -0.11139$\,deg or $l = 0.85206$\,deg, $b = 45.860$\,deg, its distance was set to $d_{Sun} = 23.2\,pc$ \citep{Harris96}, and the radial velocity was set to -58.7\,km\,s$^{-1}$ \citep{Odenkirchen02}. The proper motion was then chosen such that the profile of the resulting stream matches the observed morphology within the given choice of galactic potential.
+To generate a Pal\,5-like stream, we ran a direct $N$-body simulation of a low-mass globular cluster, and let it dissolve in a static, Milky Way-like background potential (see Sec.~\ref{ssec:potential}). The model initially consisted of 65,356 single-mass particles of about $0.5\msun$ each, and was evolved for 4\,Gyr using the publicly available code \textsc{Nbody6} \citep{Aarseth03, Nitadori12}. The initial mass of the cluster was $31,090\msun$ and it lost $17,940\msun$ into the tidal tails, leaving the cluster with a present-day mass of $13,150\msun$.
 
-With these specifications, the present-day Cartesian coordinates of the progenitor are 
+The orbit of the cluster was chosen such that its present-day position, distance and radial velocity match the observed values for Pal\,5. The position in observable coordinates is $RA = 229.0$\,deg, $Dec = -0.1114$\,deg or $l = 0.8521$\,deg, $b = 45.86$\,deg. Its distance was set to $d_{Sun} = 23.2\,pc$ \citep{Harris96}, and the radial velocity to $-58.7$\,km\,s$^{-1}$ \citep{Odenkirchen02}. The proper motion was then chosen such that the profile of the resulting stream matches roughly the observed morphology of Pal\,5 within our choice of galactic potential (Sec.~\ref{ssec:potential}). The values are $\mu_{\alpha\cos(\delta)}=-2.537$\,mas\,yr$^{-1}$ and $\mu_\delta = -2.649$\,mas\,yr$^{-1}$.
+
+The observables were turned into Cartesian coordinates assuming a solar galactocentric distance of 8.33\,kpc and a LSR motion of 239.5\,km/s \citep{Gillessen09}. The solar reflex motion was assumed to be $(11.1, 12.24, 7.25)$\,km\,s$^{-1}$ \citep{Schonrich10}. With these specifications, the present-day Cartesian coordinates of the progenitor in the galactic rest frame are 
 \begin{eqnarray}
-  x &=& 7816.082584\,\mbox{pc}\\
-  y &=& 240.023507\,\mbox{pc}\\
-  z &=& 16640.055966\,\mbox{pc}\\
-  vx &=& -37.456858\,\mbox{km\,s}^{-1}\\
-  vy &=& -151.794112\,\mbox{km\,s}^{-1}\\
-  vz &=& -21.609662\,\mbox{km\,s}^{-1}
+  x &=& 7816.1\,\mbox{pc}\\
+  y &=& 240.02\,\mbox{pc}\\
+  z &=& 16640\,\mbox{pc}\\
+  vx &=& -37.457\,\mbox{km\,s}^{-1}\\
+  vy &=& -151.79\,\mbox{km\,s}^{-1}\\
+  vz &=& -21.610\,\mbox{km\,s}^{-1}
 \end{eqnarray}
 
 The Challenge can be found on the wiki page of the Gaia Challenge workshop\footnote{\url{http://astrowiki.ph.surrey.ac.uk/dokuwiki/doku.php?id=tests:streams:challenges}}, and we invite everyone to download the Challenge and contribute to this comparison project. The columns are described in the header of the file, and more details can be found on the wiki. The columns give Cartesian coordinates and observables for positions and velocities of all particles. All numbers are either in pc and km/s, or degree and mas/yr, respectively. 
 
-The Cartesian coordinates are given in the Galactic rest frame. The observables were derived assuming a solar Galactocentric distance of 8.33\,kpc and a LSR motion of 239.5\,km/s \citep{Gillessen09}. In addition, the solar reflex motion was assumed to be $(11.1, 12.24, 7.25)$\,km\,s$^{-1}$ \citep{Schonrich10}.  
 
 
-
-
-
-\subsection{The potential}
+\subsection{The potential}\label{ssec:potential}
 
 The functional form of the potential components is as follows:
 
