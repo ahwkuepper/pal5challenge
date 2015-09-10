@@ -4,3 +4,5 @@
 *.out
 *.synctex.gz
 *.pdf
+*~
+pal5challenge
