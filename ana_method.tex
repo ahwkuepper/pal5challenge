@@ -1,1 +1,23 @@
-From present-day position \& velocity of the progenitor of interest, integrate the orbit of a cluster particle of a given mass in a test potential backwards for several Gyr. Then integrate forward to present time. While doing so, generate test stream particles. Compare the present-day distribution of stream test particles to the observations. Define likelihood, calculate likelihood, put in MCMC, stirr, ready.
+For the \textsc{FastForward} method, forward models of streams are generated using the streakline method outlined in \citet{Kupper12} and \citet{Bonaca14}. 
+Starting from the present-day position of the cluster, its orbit is integrated backwards in a given trial galaxy potential for a specified time. 
+In the case of this test problem, the 3D position and velocity of the cluster is known as well as the integration time of the underlying $N$-body model. 
+Hence, these parameters are fixed and only the parameters of the halo potential are sampled from a parameter probablity distribution using the Markov-chain Monte Carlo sampler \textit{emcee} \citep{Foreman13}.
+
+From these initial conditions, the cluster is integrated back to the present-day position, while test particles are released from the instantaneous Lagrange points of the cluster-galaxy system at fixed time intervals of 40\,Myr, resulting in 100 test particles per stream (leading/trailing). 
+The positions of the Lagrange points are calculated using the approximation for the Jacobi radius from \citet{King62},
+\begin{equation}
+r_{L} = \left( \frac{G\,M_c}{\Omega_c^2-\partial^2\Phi/\partial R_c^2}\right)^{1/3},
+\end{equation}
+where $G$ is the gravitational constant, $M_c$ is the mass of the cluster, $\Omega_c$ is the instantaneous angular velocity of the cluster, and $\partial^2\Phi/\partial R_c^2$ is the second derivative of the galactic potential with respect to the cluster's galactocentric radius, $R_c$.
+Test particles are released from $\pm r_L$ along the connecting line between cluster center and galactic center with velocities matching the cluster's angular velocity. 
+Random spacial and velocity offsets from these idealized escape conditions are added to the test particles. 
+They are drawn from gaussian distributions with dispersions of $0.25r_L$ and 1\,km\,s$^{-1}$, respectively.
+ 
+The resulting, present-day positions and velocities of stream test particles,  are then compared to the mock model particles using a likelihood function of the form
+\begin{equation}
+L = \prod_j^{N_{data}} \left(\frac{1}{N_{model}}\sum_i^{N_{model}} \exp{\left(-\frac{d_{ij}^2}{2\Delta d^2}\right)} \right).
+\end{equation} 
+Here, $N_{data}$ is the number of data points of the mock model, $N_{model}$ is the number of model points from the forward model, $d_{ij}$ is the distance of the $i$-th model point from the $j$-th data point in 6D-phase space, and $\Delta d$ is the uncertainty in this distance. 
+Since the given data is error-free, hyper-parameters are used to artificially widen the distribution of the points, and create a continuos density distribution. 
+This likelihood value is then used as input for the MCMC sampler. 
+The chains presented here are the results of 64 ``walkers'', making a total of 200 steps each, after a short burn-in phase of 20 steps.
