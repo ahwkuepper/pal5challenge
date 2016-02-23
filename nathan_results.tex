@@ -1,7 +1,59 @@
+To test the basic orbit-fitting algorithm we used 100 points randomly selected from the stream and fit their 
+Cartesian coordinates.  In Cartesian space, each data point consists of six phase-space observations.  This means 
+that we fit six thickness parameters for a total of nine free parameters.  The resulting MW model PDFs are shown in 
+Fig. \ref{plot_nathan_results_Cart}.  The halo flattening is recovered within the 68\% confidence limits, but the orbit
+fitting algorithm only recovers the correlation between the  halo mass and scale radius.  The degeneracy in these 
+two parameters is due to the orbit-fitting method only being sensitive to the mass within the orbit.  In an NFW halo, 
+all models within the mass-radius band indicated in Fig. \ref{plot_nathan_results_Cart} have the same 
+mass within the Pal 5 orbit and, as shown in Fig. \ref{plot_nathan_results_Cart_accel}, give the same acceleration at the location 
+of the Pal 5 progenitor.  However, this figure also demonstrates that the orbit-fitting algorithm does not quite 
+recover the true model as the inferred acceleration differs from the true acceleration significantly.
+
 \begin{figure}
-\includegraphics[width=83mm]{./figures/nathan_results.pdf}
-  \caption{Nathan's results (Sec.~\ref{ssec:nathan_results})}
-  \label{plot_nathan_results}
+\includegraphics[width=83mm]{./figures/Nathan_results_CartAll.pdf}
+  \caption{The MW model PDFs inferred using the orbit-fitting algorithm on Cartesian stream data.  The red and blue 
+  contours enclose the 68\% and 95\% confidence regions, the star and red vertical lines indicate 
+  the generative values, and the grey shaded regions correspond to areas of increasing 
+  probability.  (Sec.~\ref{ssec:nathan_results})}
+  \label{plot_nathan_results_Cart}
 \end{figure}
 
-This subsection is dedicated to Nathan.
+\begin{figure}
+\includegraphics[width=83mm]{./figures/Nathan_results_Accel_CartAll.pdf}
+  \caption{The inferred acceleration at the location of the Pal-5 progenitor using the 
+  orbit-fitting algorithm with Cartesian data.  The red line indicates the generative value.  (Sec.~\ref{ssec:nathan_results})}
+  \label{plot_nathan_results_Cart_accel}
+\end{figure}
+
+
+A slightly more realistic test is to utilize observational data instead of Cartesian data.  Observational data differs from Cartesian 
+data in two key respects.  Firstly, it reduces the dimensionality of the stream fitting to five phase-space coordinates as 
+we use the angular distance on the sky between model stream points and data points as the constraint.  Secondly, it introduces 
+a constraint on the local circular speed as the observations of the stream's radial velocity and proper motions are 
+convolved with $v_{c}(R_{\circ})$.  The resulting PDFs of the model parameters and acceleration at the location of the 
+Pal 5 progenitor are shown in Figs. \ref{plot_nathan_results_ObsData}-\ref{plot_nathan_results_ObsData_accel}.
+These figures show that the use of observational data improves the fits greatly.  The convolution of the observed
+motion with the local circular speed breaks the halo mass-scale radius degeneracy.  The generative model is recovered, as 
+is the acceleration at the location of Pal 5.
+
+
+\begin{figure}
+\includegraphics[width=83mm]{./figures/Nathan_results_ObsData.pdf}
+  \caption{The MW model PDFs inferred using the orbit-fitting algorithm on Cartesian stream data.  The red and blue 
+  contours enclose the 68\% and 95\% confidence regions, the star and red vertical lines indicate 
+  the generative values, and the grey shaded regions correspond to areas of increasing 
+  probability.  (Sec.~\ref{ssec:nathan_results})}
+  \label{plot_nathan_results_ObsData}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=83mm]{./figures/Nathan_results_Accel_ObsData.pdf}
+  \caption{The inferred acceleration at the location of the Pal-5 progenitor using the 
+  orbit-fitting algorithm with Cartesian data.  The red line indicates the generative value.  (Sec.~\ref{ssec:nathan_results})}
+  \label{plot_nathan_results_ObsData_accel}
+\end{figure}
+
+It is worth noting that these tests are still not completely realistic.  The progenitor has remained fixed in Cartesian space, no 
+observational error has been included, and the majority of the model parameters were not explored.  While the results shown in 
+Figs. \ref{plot_nathan_results_ObsData}-\ref{plot_nathan_results_ObsData_accel} are promising, it is not clear how well 
+orbit-fitting will perform in more realistic tests.
